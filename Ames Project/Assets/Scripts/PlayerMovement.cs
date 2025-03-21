@@ -25,7 +25,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MyInput();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
     }
     private void MyInput()
     {
@@ -33,5 +38,14 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+    }
+
+    private void MovePlayer()
+    {
+
+
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 }
