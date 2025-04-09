@@ -9,6 +9,7 @@ public class SC_FPSController : MonoBehaviour
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
+    public float dashSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
@@ -46,6 +47,7 @@ public class SC_FPSController : MonoBehaviour
         {
             moveDirection.y = jumpSpeed;
         }
+       
         else
         {
             moveDirection.y = movementDirectionY;
