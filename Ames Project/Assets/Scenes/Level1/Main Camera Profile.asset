@@ -268,16 +268,16 @@ MonoBehaviour:
     m_Value: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.072
+    m_Value: 0.014
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.4194564
+    m_Value: 0.26677215
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.7328861
+    m_Value: 0.68255055
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   cascadeShadowBorder1:
     m_OverrideState: 1
     m_Value: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
     m_Value: 0
   cascadeShadowBorder3:
     m_OverrideState: 1
-    m_Value: 0.43396217
+    m_Value: 0.49206352
 --- !u!114 &6685597138127384580
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -314,10 +314,10 @@ MonoBehaviour:
     m_Value: 0
   nearFocusStart:
     m_OverrideState: 1
-    m_Value: 2.26
+    m_Value: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 3.76
+    m_Value: 2.63
   farFocusStart:
     m_OverrideState: 1
     m_Value: 52.9
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 11.8198185
+    m_Value: 11.27
   compensation:
     m_OverrideState: 1
     m_Value: -0.96
