@@ -460,7 +460,7 @@ MonoBehaviour:
   gravity: 20
   playerCamera: {fileID: 864219930165138088}
   lookSpeed: 2
-  lookXLimit: 45
+  lookXLimit: 90
   canMove: 1
 --- !u!1001 &4196806294734560005
 PrefabInstance:
