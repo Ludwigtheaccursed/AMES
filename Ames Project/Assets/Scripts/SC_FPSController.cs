@@ -9,15 +9,23 @@ public class SC_FPSController : MonoBehaviour
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
-    public float dashSpeed = 15.0f;
     public float gravity = 20.0f;
+    public float gravDefault;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
+    public PhysicsMaterial physmat;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
+
+    float dashTimer;
+    public float dashCooldown = 1;
+    public float MaxDashTime = 1.0f;
+    public float dashSpeed = 1.0f;
+    public float dashStopSpeed = 0.1f;
+    float currentDashTime;
 
     [HideInInspector]
     public bool canMove = true;
@@ -25,14 +33,16 @@ public class SC_FPSController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
+        currentDashTime = MaxDashTime;
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        gravDefault = gravity;
     }
 
     void Update()
     {
+        dashTimer += Time.deltaTime;
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -47,12 +57,17 @@ public class SC_FPSController : MonoBehaviour
         {
             moveDirection.y = jumpSpeed;
         }
-       else if (Input.GetButton("dash") && canMove && characterController.isGrounded)
+       else if (Input.GetButton("dash") && canMove && characterController.isGrounded && dashTimer > dashCooldown)
         {
             Debug.Log("Dash!!");
+            /* gravity = 10;
+           moveDirection += forward * dashSpeed;*/
+            Dash();
+            dashTimer = 0;
         }
         else
         {
+            gravity = gravDefault;
             moveDirection.y = movementDirectionY;
         }
 
@@ -75,5 +90,9 @@ public class SC_FPSController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    }
+    public void Dash()
+    {
+      
     }
 }
