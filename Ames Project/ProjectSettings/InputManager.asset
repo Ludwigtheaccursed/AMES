@@ -489,7 +489,7 @@ InputManager:
     m_Name: dash
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
+    negativeButton: r
     positiveButton: r
     altNegativeButton: 
     altPositiveButton: 
