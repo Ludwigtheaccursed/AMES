@@ -21,16 +21,21 @@ public class SC_FPSController : MonoBehaviour
     [HideInInspector]
    public  Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
-
- 
+    public float maxDashTime = 2f;
+    float dashTime;
+    public float dashTimed = 0.1f;
+    public float dashCoolDown = 2f;
+    float dashCoolDownTimer;
+    public bool grounded;
 
    
     public bool canMove = true;
 
     void Start()
     {
+        dashTime = maxDashTime;
         characterController = GetComponent<CharacterController>();
-     
+       
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -39,7 +44,7 @@ public class SC_FPSController : MonoBehaviour
 
     void Update()
     {
-       
+        grounded = characterController.isGrounded;
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -54,16 +59,24 @@ public class SC_FPSController : MonoBehaviour
         {
             moveDirection.y = jumpSpeed;
         }
-        if (Input.GetButton("dash"))
+        if (Input.GetButton("dash") && dashTime >= maxDashTime && canMove)
+        {
+
+            dashTime = 0f;
+            
+        }
+        if (dashTime < maxDashTime)
         {
             Debug.Log("mash");
+            canMove = false;
+            gravity = gravity * 1.2f;
             moveDirection = (forward) * 100;
-
-            
+            dashTime += dashTimed;
         }
        
         else
         {
+            canMove = true;
             gravity = gravDefault;
             moveDirection.y = movementDirectionY;
         }
@@ -77,7 +90,7 @@ public class SC_FPSController : MonoBehaviour
         }
 
         // Move the controller
-        if (canMove)
+       // if (canMove)
        characterController.Move(moveDirection * Time.deltaTime);
 
         // Player and Camera rotation
