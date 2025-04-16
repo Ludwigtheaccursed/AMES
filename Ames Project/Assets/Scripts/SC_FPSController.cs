@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -18,15 +19,19 @@ public class SC_FPSController : MonoBehaviour
     public PhysicsMaterial physmat;
 
     CharacterController characterController;
+    Volume blurFX;
+
     [HideInInspector]
    public  Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
     public float maxDashTime = 2f;
     float dashTime;
     public float dashTimed = 0.1f;
-    public float dashCoolDown = 2f;
-    float dashCoolDownTimer;
+    public float dashCoolDown = 0.3f;
+    [HideInInspector]
+   public float dashCoolDownTimer;
     public bool grounded;
+
 
    
     public bool canMove = true;
@@ -35,6 +40,8 @@ public class SC_FPSController : MonoBehaviour
     {
         dashTime = maxDashTime;
         characterController = GetComponent<CharacterController>();
+        blurFX = GetComponentInChildren<Volume>();
+        blurFX.enabled = false;
        
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,6 +51,7 @@ public class SC_FPSController : MonoBehaviour
 
     void Update()
     {
+        dashCoolDownTimer += Time.deltaTime;
         grounded = characterController.isGrounded;
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -61,16 +69,18 @@ public class SC_FPSController : MonoBehaviour
             moveDirection.y = jumpSpeed;
             Debug.Log("JumpSuccessfullyCalled2");
         }
-      else  if (Input.GetButton("dash") && dashTime >= maxDashTime && canMove)
+      else  if (Input.GetButton("dash") && dashTime >= maxDashTime && canMove && dashCoolDown <= dashCoolDownTimer)
         {
 
             dashTime = 0f;
+            dashCoolDownTimer = 0f;
             
         }
        else if (dashTime < maxDashTime)
         {
             Debug.Log("mash");
             canMove = false;
+            blurFX.enabled = true;
             gravity = gravity * 1.2f;
             moveDirection = (forward) * 100;
             dashTime += dashTimed;
@@ -78,6 +88,8 @@ public class SC_FPSController : MonoBehaviour
        
         else
         {
+            blurFX.enabled = false;
+
             canMove = true;
             gravity = gravDefault;
             moveDirection.y = movementDirectionY;
