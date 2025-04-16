@@ -57,15 +57,17 @@ public class SC_FPSController : MonoBehaviour
 
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
+            Debug.Log("JumpSuccessfullyCalled");
             moveDirection.y = jumpSpeed;
+            Debug.Log("JumpSuccessfullyCalled2");
         }
-        if (Input.GetButton("dash") && dashTime >= maxDashTime && canMove)
+      else  if (Input.GetButton("dash") && dashTime >= maxDashTime && canMove)
         {
 
             dashTime = 0f;
             
         }
-        if (dashTime < maxDashTime)
+       else if (dashTime < maxDashTime)
         {
             Debug.Log("mash");
             canMove = false;
