@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
@@ -31,6 +32,7 @@ public class SC_FPSController : MonoBehaviour
     [HideInInspector]
    public float dashCoolDownTimer;
     public bool grounded;
+    public Image dashMeter;
 
 
    
@@ -52,6 +54,7 @@ public class SC_FPSController : MonoBehaviour
     void Update()
     {
         dashCoolDownTimer += Time.deltaTime;
+        dashMeter.fillAmount = dashCoolDownTimer / dashCoolDown;
         grounded = characterController.isGrounded;
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
