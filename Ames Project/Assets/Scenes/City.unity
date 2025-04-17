@@ -9068,6 +9068,10 @@ PrefabInstance:
       propertyPath: sharedProfile
       value: 
       objectReference: {fileID: 11400000, guid: 72213988090e7734c946eb9f6434c162, type: 2}
+    - target: {fileID: 5150131165997629036, guid: 2dfcaad4a37136840a2fd00c2db9c442, type: 3}
+      propertyPath: PauseButt
+      value: p
+      objectReference: {fileID: 0}
     - target: {fileID: 5189879101659004089, guid: 2dfcaad4a37136840a2fd00c2db9c442, type: 3}
       propertyPath: dashTimed
       value: 0.1
