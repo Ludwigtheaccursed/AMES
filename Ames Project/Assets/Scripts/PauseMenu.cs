@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public string PauseButt;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +14,14 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //IF the enter/return key is pressed
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
+        if (Input.GetKeyDown(PauseButt) && Time.timeScale == 1)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
             GetComponent<Canvas>().enabled = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
         {
             Resume();
         }
