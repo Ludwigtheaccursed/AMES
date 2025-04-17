@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public string PauseButt;
+    public Canvas canvas;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Canvas>().enabled = false;
+        canvas = GetComponent<Canvas>();
+        canvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -19,11 +21,15 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
-            GetComponent<Canvas>().enabled = true;
+            canvas.enabled = true;
         }
         else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
         {
             Resume();
+        }
+        else if (Input.GetKeyDown("l"))
+        {
+            Reload();
         }
 
     }
@@ -32,7 +38,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
-        GetComponent<Canvas>().enabled = false;
+        canvas.enabled = false;
     }
     public void Reload()
     {

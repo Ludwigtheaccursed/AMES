@@ -4,9 +4,11 @@ public class Scythe : MonoBehaviour
 {
     public float WaitTime = 1;
     float nextTimeToFire = 0;
+    PauseMenu PM;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PM = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
         
     }
 
