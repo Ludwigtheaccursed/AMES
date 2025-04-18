@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     public string PauseButt;
     public Canvas canvas;
+    SC_FPSController fpsc;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,15 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //IF the enter/return key is pressed
-        if (Input.GetKeyDown(PauseButt) && Time.timeScale == 1)
+        if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
         {
+            fpsc.canMove = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
             canvas.enabled = true;
         }
-        else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
+        else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 1)
         {
             Resume();
         }
@@ -35,6 +37,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
+        fpsc.canMove = true;
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
