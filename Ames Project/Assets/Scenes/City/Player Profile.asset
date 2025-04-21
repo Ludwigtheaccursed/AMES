@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 16, g: 7.924528, b: 14.413749, a: 1}
+    m_Value: {r: 47.30977, g: 23.819601, b: 66.90506, a: 1}
   maxFogDistance:
     m_OverrideState: 1
     m_Value: 5000
@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 1
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 111
+    m_Value: 500
   meanFreePath:
     m_OverrideState: 1
     m_Value: 400
@@ -124,7 +124,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 11
   intensity:
     m_OverrideState: 1
     m_Value: 1
