@@ -37,6 +37,8 @@ public class SC_FPSController : MonoBehaviour
 
    
     public bool canMove = true;
+    public float respawnY = -20;
+    PauseMenu PM;
 
     void Start()
     {
@@ -44,7 +46,7 @@ public class SC_FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         blurFX = GetComponentInChildren<Volume>();
         blurFX.enabled = false;
-       
+       PM = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -53,6 +55,10 @@ public class SC_FPSController : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.y < respawnY)
+        {
+            PM.Reload();
+        }
         dashCoolDownTimer += Time.deltaTime;
         dashMeter.fillAmount = dashCoolDownTimer / dashCoolDown;
         grounded = characterController.isGrounded;

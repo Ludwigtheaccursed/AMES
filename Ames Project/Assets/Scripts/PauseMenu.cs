@@ -11,13 +11,14 @@ public class PauseMenu : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
+        fpsc = GameObject.Find("Player").GetComponent<SC_FPSController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //IF the enter/return key is pressed
-        if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
+        if (Input.GetKeyDown(PauseButt) && Time.timeScale == 1)
         {
             fpsc.canMove = false;
             Cursor.visible = true;
@@ -25,7 +26,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             canvas.enabled = true;
         }
-        else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 1)
+        else if (Input.GetKeyDown(PauseButt) && Time.timeScale == 0)
         {
             Resume();
         }
