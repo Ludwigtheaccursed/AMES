@@ -370,7 +370,7 @@ MonoBehaviour:
     m_Value: 4
   m_NearMaxBlur:
     m_OverrideState: 1
-    m_Value: 2.57
+    m_Value: 0
   m_FarSampleCount:
     m_OverrideState: 1
     m_Value: 5
