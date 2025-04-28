@@ -38,7 +38,7 @@ public class SC_FPSController : MonoBehaviour
    
     public bool canMove = true;
     public float respawnY = -20;
-    PauseMenu PM;
+    public PauseMenu PM;
 
     void Start()
     {
