@@ -14,19 +14,20 @@ public class EnemyAI : MonoBehaviour
     float stalkSpeed = 10;
     Vector3 home;
     GameObject player;
-    NavMeshAgent enemyAge;
+    NavMeshAgent enemyAgent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         home = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
-        enemyAge = GetComponent<NavMeshAgent>();
+        enemyAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         Vector3 dir = player.transform.position - transform.position;
         if (dir.magnitude <= stalkDis)
         {
@@ -35,6 +36,15 @@ public class EnemyAI : MonoBehaviour
             {
                 enemyAge.velocity = enemyAge.velocity * dashSpeed;
             }
+        }*/
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance <= stalkDis)
+        {
+            enemyAgent.destination = player.transform.position;
+        }
+        if (distance <= dashDis)
+        {
+            enemyAgent.velocity = enemyAgent.velocity * dashSpeed;
         }
     }
 }
