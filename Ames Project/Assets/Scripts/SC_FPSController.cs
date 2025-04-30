@@ -22,10 +22,9 @@ public class SC_FPSController : MonoBehaviour
     CharacterController characterController;
     Volume blurFX;
 
-    [HideInInspector]
    public  Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
-    public float maxDashTime = 2f;
+    public float maxDashTime = 3f;
     float dashTime;
     public float dashTimed = 0.1f;
     public float dashCoolDown = 0.3f;
