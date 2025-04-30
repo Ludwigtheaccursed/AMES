@@ -87,10 +87,10 @@ MonoBehaviour:
     m_Value: 3
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 22
   maximumVelocity:
     m_OverrideState: 1
-    m_Value: 185
+    m_Value: 550
   minimumVelocity:
     m_OverrideState: 1
     m_Value: 64
@@ -114,4 +114,4 @@ MonoBehaviour:
     m_Value: 1
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 22
