@@ -163,7 +163,7 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _BumpScale: 1
-    - _CoatMask: 1
+    - _CoatMask: 0.651
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -208,12 +208,12 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.699
     - _MetallicRemapMax: 0.6769911
     - _MetallicRemapMin: 0
     - _Mode: 0
     - _NormalMapSpace: 0
-    - _NormalScale: 3.43
+    - _NormalScale: 5.08
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _OcclusionStrength: 1
