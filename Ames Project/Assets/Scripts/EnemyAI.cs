@@ -42,9 +42,14 @@ public class EnemyAI : MonoBehaviour
         {
             enemyAgent.destination = player.transform.position;
         }
-        if (distance <= dashDis)
+        else
+        {
+            enemyAgent.destination = home;
+
+        }
+       /* if (distance <= dashDis)
         {
             enemyAgent.velocity = enemyAgent.velocity * dashSpeed;
-        }
+        }*/
     }
 }
