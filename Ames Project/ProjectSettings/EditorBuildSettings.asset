@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TitleScreen.unity
     guid: 3af7adac587083f45b66c4b53e527795
   - enabled: 1
     path: Assets/Scenes/City.unity
     guid: 5eba637aabdccb54383727bc6b9dcd50
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/C_TestScene.unity
     guid: 3e78abf8ea8494f43816b634d0ea33d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Scene.unity
     guid: dc74dad9ab042014fab279d587fa8aa2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: b2dd8b38b2f9933448db09e1ba5aa893
   m_configObjects:
