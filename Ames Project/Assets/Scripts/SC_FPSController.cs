@@ -32,7 +32,7 @@ public class SC_FPSController : MonoBehaviour
    public float dashCoolDownTimer;
     public bool grounded;
     public Image dashMeter;
-
+    public bool canDash;
 
    
     public bool canMove = true;
@@ -41,6 +41,7 @@ public class SC_FPSController : MonoBehaviour
 
     void Start()
     {
+        canDash = false;
         dashTime = maxDashTime;
         characterController = GetComponent<CharacterController>();
         blurFX = GetComponentInChildren<Volume>();
