@@ -18,9 +18,7 @@ public class LoadWin : MonoBehaviour
         }
         else if (collision.gameObject.tag == "mask")
         {
-            SC_FPSController pl = GetComponent<SC_FPSController>();
-            pl.canDash = true;
-            Destroy(collision.gameObject);
+          
         }
     }
 }
