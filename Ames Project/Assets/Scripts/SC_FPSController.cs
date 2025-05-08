@@ -95,7 +95,7 @@ public class SC_FPSController : MonoBehaviour
             dashTime += dashTimed;
         }
        
-        else
+        else if (!PM.canvas.enabled)
         {
             blurFX.enabled = false;
 
