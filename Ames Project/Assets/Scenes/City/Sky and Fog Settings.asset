@@ -633,7 +633,7 @@ MonoBehaviour:
       m_Value: 0
     tint:
       m_OverrideState: 1
-      m_Value: {r: 1, g: 0, b: 0, a: 1}
+      m_Value: {r: 0.735849, g: 0.21173012, b: 0.52610767, a: 1}
     exposure:
       m_OverrideState: 1
       m_Value: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
       m_OverrideState: 1
       m_Value:
         mode: 0
-        customValue: 300
+        customValue: 1111
         additiveValue: 0
         multiplyValue: 1
     flowmap:
